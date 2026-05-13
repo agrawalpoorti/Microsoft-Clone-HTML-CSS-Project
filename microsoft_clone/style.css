@@ -1,27 +1,43 @@
 *{
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
     font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body{
+    color: #262626;
+    overflow-x: hidden;
+}
+img{
+    max-width: 100%;
 }
 .logo{
     height: 20px;
     background-image: url("microsoft\ logo\ 3.svg");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
-    width: 100px;
+    width: 108px;
     margin-top: -2px;
+    flex: 0 0 108px;
     
 }
 .nav-bar{
     display:flex;
     justify-content: space-between;
-    margin-top: 1rem;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1600px;
+    margin: 1rem auto 0;
+    padding: 0 4%;
 }
 .nav-bar-1{
-    width: 60%;
+    flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.35rem;
     font-size: 0.85rem;
+    min-width: 0;
 }
 .nav-bar-1 a:hover{
     text-decoration:underline;
@@ -39,6 +55,8 @@
 
 .nav-bar-2 {
     display: flex;
+    align-items: center;
+    gap: 1.4rem;
     font-size: 0.85rem;
     
     
@@ -47,28 +65,27 @@
     text-decoration: none;
     color: #262626;
 }
-.nav-bar-2 a,i{
+.nav-bar-2 a,.nav-bar-2 i{
     text-decoration: none;
     color: #262626;
-    margin-right: 3rem;
 }
 .copilot-section{
-    height: 550px;
+    min-height: 550px;
     background-image: url("copilot\ image.avif");
     background-size: cover;
+    background-position: center;
     margin-top: 1.5rem;
     display: flex;
-    padding-left: 4rem;
-    padding-top: 4rem;
+    align-items: flex-start;
+    padding: 4rem;
    
    
 }
 .white-box{
-    height: 250px;
-    width: 450px;
+    min-height: 250px;
+    width: min(450px, 100%);
     background-color: white;
-    padding-left: 3rem;
-    padding-top: 3rem;
+    padding: 3rem;
     font-size: 0.9rem;
     
     
@@ -90,7 +107,8 @@
     border-radius: 2px;
     color: white;
 }
-.white-box h1,p{
+.white-box h1,
+.white-box p{
     word-spacing: 6px;
 
 }
@@ -103,63 +121,90 @@
 .icon-bar{
     display:flex;
     justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 20px;
+}
+.icon-bar i{
+    margin-right: 0;
 }
 .logo-bar{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.8rem 4.5rem;
+    margin-top: 60px;
 }
 .logo-bar i{
     font-size: 35px;
-    margin-top: 60px;
-   margin-left: 70px;
+    margin: 0;
 }
 .logo-bar-name{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 2.5rem;
     margin-top: 10px;
+    padding: 0 1rem;
    
 }
 .logo-bar-name a{
-    margin-left: 40px;
     color: #0067B8;
+    text-align: center;
 }
 .box-text{
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
     margin-top: 5rem;
 }
 .box{
-    height: 420px;
-    width: 270px;
-   border-radius: 5px;   
-   border: 2px solid whitesmoke;
-   box-shadow: 5px 5px 15px whitesmoke;
+    min-height: 420px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+    box-shadow: 5px 5px 15px whitesmoke;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 .box .box-image{
     height: 150px;
-    width: 270px;
+    width: 100%;
    
     background-size: cover;
+    background-position: center;
+    flex: 0 0 150px;
 }
 .box h1{
-    font-size: 24px;
+    font-size: clamp(20px, 2vw, 24px);
     font-weight: 600;
     margin-top: 1rem;
     margin-left: 1rem;
+    margin-right: 1rem;
 }
 .box p{
     font-size: 0.90rem;
     margin-top: 1rem;
     margin-left: 1rem;
+    margin-right: 1rem;
+    line-height: 1.35;
     
 }
 .box button{
     background-color:#0067B8; 
 
     margin-left: 1rem;
+    margin-top: auto !important;
+    margin-bottom: 1rem;
     height: 40px;
-    width: 180px;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    padding: 0 1rem;
     text-align: center;
     color: white;
     font-size: 1rem;
@@ -173,8 +218,8 @@
 
 
 .big button{
-    height: 55px;
-    width: 190px;
+    min-height: 55px;
+    width: fit-content;
 
 }
 .game-pass{
@@ -183,15 +228,18 @@
     margin-top: 6rem;
     background-image: url(Game\ pass.avif);
     background-size: cover;
-    height: 550px;
+    background-position: center;
+    min-height: 550px;
     color: white;
+    display: flex;
+    align-items: center;
 }
 .game-pass-parah{
-   padding: 10rem;
+   padding: clamp(2rem, 9vw, 10rem);
 }
 .game-pass-parah h1{
     font-weight: 600;
-    font-size: 29px;
+    font-size: clamp(28px, 4vw, 40px);
 }
 .game-pass-parah p{
     font-size: 0.9rem;
@@ -200,6 +248,9 @@
 .game-pass-join{
     
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1rem;
 }
 .game-pass-join button{
     background-color: #0067B8; 
@@ -216,11 +267,15 @@
 .game-pass-join p{
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 .for-business{
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 .business{
     margin-top: 5rem;
@@ -240,6 +295,9 @@
 }
 .foot-bar{
     display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 6rem;
     margin-left: 3rem;
     font-size: 1rem;
@@ -249,7 +307,8 @@
 .foot-bar i{
   
       font-size: 1.5rem;
-      margin-left: 1rem;
+      margin-left: 0;
+      margin-right: 0;
     
 }
 .back{
@@ -263,6 +322,7 @@
 .back button{
     display:flex;
     align-items: center;
+    gap: 0.5rem;
     border-radius: 2px;
     height: 40px;
     text-align:center;
@@ -277,11 +337,13 @@
     background-color: white;
 }
 .bottom{
-    height: 335;
+    min-height: 335px;
     background-color: rgb(224, 224, 224);
     margin-top: 5rem;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(130px, 1fr));
+    gap: 1.5rem;
+    padding: 0 2rem 2.5rem;
     
 }
 .column p{
@@ -302,10 +364,13 @@
     text-decoration: underline;
 }
 .bottom-bar{
-    height: 100px;
+    min-height: 100px;
     background-color: rgb(224, 224, 224);
     display: flex;
     justify-content:space-evenly;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0 2rem 2rem;
 }
 .bottom-bar-1 a{
     text-decoration: none;
@@ -331,4 +396,168 @@
 }
 .bottom-bar-2 a:hover{
     text-decoration: underline;
+}
+
+@media (max-width: 1180px){
+    .nav-bar{
+        flex-wrap: wrap;
+    }
+    .nav-bar-1{
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .box-text,
+    .for-business{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .bottom{
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 760px){
+    .nav-bar{
+        align-items: flex-start;
+        padding: 0 1rem;
+    }
+    .nav-bar-1{
+        width: 100%;
+        gap: 0.85rem 1rem;
+    }
+    .nav-bar-1 a{
+        font-size: 0.82rem;
+    }
+    .nav-bar-2{
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .copilot-section{
+        min-height: auto;
+        padding: 18rem 1rem 1rem;
+        background-position: 62% top;
+    }
+    .white-box{
+        padding: 1.5rem;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    }
+    .white-box h1{
+        font-size: 1.8rem;
+    }
+    .logo-bar{
+        gap: 1.2rem 2.2rem;
+        margin-top: 42px;
+    }
+    .logo-bar-name{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+    }
+    .box-text,
+    .for-business{
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        margin-top: 3rem;
+    }
+    .box,
+    .for-business .box{
+        min-height: auto;
+        height: auto !important;
+    }
+    .box .box-image{
+        height: 190px;
+        flex-basis: 190px;
+    }
+    .game-pass{
+        margin: 4rem 1rem 0;
+        min-height: 480px;
+        background-position: 58% center;
+    }
+    .game-pass-parah{
+        padding: 2rem;
+        max-width: 340px;
+    }
+    .business{
+        margin-left: 1rem;
+        margin-top: 3.5rem;
+    }
+    .foot-bar{
+        margin-left: 1rem;
+        margin-top: 4rem;
+    }
+    .back{
+        justify-content: flex-start;
+        margin: 2rem 0 0 1rem;
+    }
+    .bottom{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 1rem 2rem;
+        gap: 1rem;
+    }
+    .bottom-bar{
+        flex-direction: column;
+        padding: 0 1rem 2rem;
+    }
+    .bottom-bar-1,
+    .bottom-bar-2{
+        margin-top: 1.5rem;
+    }
+    .bottom-bar-1 a,
+    .bottom-bar-2 a{
+        display: inline-block;
+        margin: 0 1rem 0.8rem 0;
+    }
+}
+
+@media (max-width: 480px){
+    .nav-bar{
+        margin-top: 0.8rem;
+    }
+    .logo{
+        width: 102px;
+        flex-basis: 102px;
+    }
+    .nav-bar-1 a{
+        flex: 1 1 40%;
+    }
+    .nav-bar-2 a{
+        flex-basis: 100%;
+    }
+    .copilot-section{
+        padding-top: 15rem;
+        background-position: 65% top;
+    }
+    .white-box{
+        padding: 1.25rem;
+    }
+    .white-box p,
+    .game-pass-parah p,
+    .box p{
+        word-spacing: normal;
+    }
+    .logo-bar-name{
+        grid-template-columns: 1fr;
+    }
+    .box .box-image{
+        height: 165px;
+        flex-basis: 165px;
+    }
+    .game-pass{
+        min-height: 430px;
+        background-position: 64% center;
+    }
+    .game-pass-parah{
+        padding: 1.25rem;
+    }
+    .game-pass-parah p br,
+    .game-pass-parah h1 br{
+        display: none;
+    }
+    .game-pass-join{
+        display: block;
+    }
+    .bottom{
+        grid-template-columns: 1fr;
+    }
 }
